@@ -29,8 +29,8 @@ param isRegularRegistration bool
 @description('Required. Make this version of the package the active one across the hostpool.')
 param isActive bool
 
-@description('Required. List of package dependencies.')
-param packageDependencies array
+@description('Optional. List of package dependencies.')
+param packageDependencies array = []
 
 @description('Required. List of package applications.')
 param packageApplications array

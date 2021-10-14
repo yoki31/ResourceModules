@@ -24,7 +24,7 @@ This module deploys AVD MSIX Packages.
 | `lastUpdated` | string | Required. Date Package was last updated, found in the appxmanifest.xml. |  |  |
 | `isRegularRegistration` | bool | Required. Specifies how to register Package in feed. |  |  |
 | `isActive` | bool | Required. Make this version of the package the active one across the hostpool. |  |  |
-| `packageDependencies` | array | Required. List of package dependencies. |  |  |
+| `packageDependencies` | array | Optional. List of package dependencies. |  |  |
 | `packageApplications` | array | Required. List of package applications. |  |  |
 | `cuaId` | string | Optional. Customer Usage Attribution id (GUID). This GUID must be previously registered |  |  |
 

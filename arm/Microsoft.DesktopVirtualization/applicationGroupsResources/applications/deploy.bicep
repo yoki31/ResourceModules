@@ -2,12 +2,12 @@
 param name string
 
 @description('Optional. Description of Application.')
-param appDescription string
+param appDescription string = ''
 
 @description('Optional. Friendly name of Application.')
-param friendlyName string
+param friendlyName string = ''
 
-@description('Specifies a path for the executable file for the application.')
+@description('Optional. Specifies a path for the executable file for the application.')
 param filePath string
 
 @description('Required. Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.')
@@ -19,10 +19,10 @@ param filePath string
 param commandLineSetting string
 
 @description('Optional. Command Line Arguments for Application.')
-param commandLineArguments string
+param commandLineArguments string = ''
 
 @description('Optional. Specifies whether to show the RemoteApp program in the RD Web Access server.')
-param showInPortal bool
+param showInPortal bool = false
 
 @description('Optional. Path to icon.')
 param iconPath string
@@ -40,6 +40,13 @@ param msixPackageApplicationId string
 @description('Optional. Specifies the package family name for MSIX applications')
 param msixPackageFamilyName string
 
+@description('Resource Type of Application')
+@allowed([
+  'InBuilt'
+  'MsixApplication'
+])
+param applicationType string
+
 @description('Optional. Customer Usage Attribution id (GUID). This GUID must be previously registered')
 param cuaId string = ''
 
@@ -51,12 +58,13 @@ module pid_cuaId './.bicep/nested_cuaId.bicep' = if (!empty(cuaId)) {
 resource applications_res 'Microsoft.DesktopVirtualization/applicationGroups/applications@2021-07-12' = {
   name: '${appGroupName}/${name}'
   properties: {
+    applicationType: applicationType
     description: appDescription
     friendlyName: friendlyName
-    filePath: filePath
     commandLineSetting: commandLineSetting
     commandLineArguments: commandLineArguments
     showInPortal: showInPortal
+    filePath: filePath
     iconPath: iconPath
     iconIndex: iconIndex
     msixPackageFamilyName: msixPackageFamilyName

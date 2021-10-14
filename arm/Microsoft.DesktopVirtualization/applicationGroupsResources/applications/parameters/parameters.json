@@ -31,6 +31,9 @@
         },
         "iconIndex": {
             "value": 0
+        },
+        "applicationType": {
+            "value": "InBuilt"
         }
     }
 }
