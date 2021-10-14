@@ -17,18 +17,17 @@ This module deploys AVD Applications.
 | Parameter Name | Type | Description | DefaultValue | Possible values |
 | :-- | :-- | :-- | :-- | :-- |
 | `appGroupName` | string | Required. Name of the Application Group to create the application(s) in. |  |  |
-| `name` | string | The resource name |  |  |
-| `description` | string | Description of Application |  |  |
-| `friendlyName` | string | Friendly name of Application |  |  |
-| `filePath` | string | Specifies a path for the executable file for the application |  |  |
-| `commandLineSetting` | string | Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all |  |  Allow, DoNotAllow, Require |
-| `commandLineArguments` | string | Command Line Arguments for Application |  |  |
-| `showInPortal` | bool | Specifies whether to show the RemoteApp program in the RD Web Access server |  |  |
-| `iconPath` | string | Path to icon |  |  |
-| `iconIndex` | int | Index of the icon |  |  |
-| `appGroupName` | string |  |  |  |
-| `msixPackageApplicationId` | string | Specifies the package application Id for MSIX applications |  |  |
-| `msixPackageFamilyName` | string | Specifies the package family name for MSIX applications |  |  |
+| `name` | string | Required. The resource name |  |  |
+| `appDescription` | string | Optional. Description of Application |  |  |
+| `friendlyName` | string | Optional. Friendly name of Application |  |  |
+| `filePath` | string | Optional. Specifies a path for the executable file for the application |  |  |
+| `commandLineSetting` | string | Required. Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all |  |  Allow, DoNotAllow, Require |
+| `commandLineArguments` | string | Optional. Command Line Arguments for Application |  |  |
+| `showInPortal` | bool | Optional. Specifies whether to show the RemoteApp program in the RD Web Access server |  |  |
+| `iconPath` | string | Optional. Path to icon |  |  |
+| `iconIndex` | int | Optional. Index of the icon |  |  |
+| `msixPackageApplicationId` | string | Optional. Specifies the package application Id for MSIX applications |  |  |
+| `msixPackageFamilyName` | string | Optional. Specifies the package family name for MSIX applications |  |  |
 | `cuaId` | string | Optional. Customer Usage Attribution id (GUID). This GUID must be previously registered |  |  |
 
 ## Outputs
