@@ -15,17 +15,17 @@ This module deploys AVD MSIX Packages.
 | Parameter Name | Type | Description | DefaultValue | Possible values |
 | :-- | :-- | :-- | :-- | :-- |
 | `hostPoolName` | string | Required. Name of the Host Pool to create the MSIX package(s) in. |  |  |
-| `packageRelativePath` | string | Relative Path to the package inside the image. |  |  |
-| `imagePath` | string | VHD/CIM image path on Network Share. |  |  |
-| `packageName` | string | Package Name from appxmanifest.xml. |  |  |
-| `packageFamilyName` | string | Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. |  |  |
-| `displayName` | string | User friendly Name to be displayed in the portal. |  |  |
-| `version` | string | Package Version found in the appxmanifest.xml. |  |  |
-| `lastUpdated` | string | Date Package was last updated, found in the appxmanifest.xml. |  |  |
-| `isRegularRegistration` | bool | Specifies how to register Package in feed. |  |  |
-| `isActive` | bool | Make this version of the package the active one across the hostpool. |  |  |
-| `packageDependencies` | array | List of package dependencies. |  |  |
-| `packageApplications` | array | List of package applications. |  |  |
+| `packageRelativePath` | string | Required. Relative Path to the package inside the image. |  |  |
+| `imagePath` | string | Required. VHD/CIM image path on Network Share. |  |  |
+| `packageName` | string | Required. Package Name from appxmanifest.xml. |  |  |
+| `packageFamilyName` | string | Required. Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. |  |  |
+| `displayName` | string | Required. User friendly Name to be displayed in the portal. |  |  |
+| `version` | string | Required. Package Version found in the appxmanifest.xml. |  |  |
+| `lastUpdated` | string | Required. Date Package was last updated, found in the appxmanifest.xml. |  |  |
+| `isRegularRegistration` | bool | Required. Specifies how to register Package in feed. |  |  |
+| `isActive` | bool | Required. Make this version of the package the active one across the hostpool. |  |  |
+| `packageDependencies` | array | Required. List of package dependencies. |  |  |
+| `packageApplications` | array | Required. List of package applications. |  |  |
 | `cuaId` | string | Optional. Customer Usage Attribution id (GUID). This GUID must be previously registered |  |  |
 
 ### Parameter Usage: `imagePath`

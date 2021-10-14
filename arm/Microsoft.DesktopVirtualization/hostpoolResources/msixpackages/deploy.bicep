@@ -2,37 +2,37 @@
 @minLength(1)
 param hostPoolName string
 
-@description('Relative Path to the package inside the image.')
+@description('Required. Relative Path to the package inside the image.')
 param packageRelativePath string
 
-@description('VHD/CIM image path on Network Share.')
+@description('Required. VHD/CIM image path on Network Share.')
 param imagePath string
 
-@description('Package Name from appxmanifest.xml.')
+@description('Required. Package Name from appxmanifest.xml.')
 param packageName string
 
-@description('Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.')
+@description('Required. Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name.')
 param packageFamilyName string
 
-@description('User friendly Name to be displayed in the portal.')
+@description('Required. User friendly Name to be displayed in the portal.')
 param displayName string
 
-@description('Package Version found in the appxmanifest.xml.')
+@description('Required. Package Version found in the appxmanifest.xml.')
 param version string
 
-@description('Date Package was last updated, found in the appxmanifest.xml.')
+@description('Required. Date Package was last updated, found in the appxmanifest.xml.')
 param lastUpdated string
 
-@description('Specifies how to register Package in feed.')
+@description('Required. Specifies how to register Package in feed.')
 param isRegularRegistration bool
 
-@description('Make this version of the package the active one across the hostpool.')
+@description('Required. Make this version of the package the active one across the hostpool.')
 param isActive bool
 
-@description('List of package dependencies.')
+@description('Required. List of package dependencies.')
 param packageDependencies array
 
-@description('List of package applications.')
+@description('Required. List of package applications.')
 param packageApplications array
 
 @description('Optional. Customer Usage Attribution id (GUID). This GUID must be previously registered')
