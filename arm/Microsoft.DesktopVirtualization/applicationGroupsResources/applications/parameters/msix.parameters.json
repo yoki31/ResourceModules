@@ -1,0 +1,27 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appGroupName": {
+            "value": "sxx-az-avdag-weu-x-001"
+        },
+        "name": {
+            "value": "msix-test"
+        },
+        "commandLineSetting": {
+            "value": "DoNotAllow"
+        },
+        "showInPortal": {
+            "value": false
+        },
+        "msixPackageApplicationId": {
+            "value": "SevenZFM"
+        },
+        "msixPackageFamilyName": {
+            "value": "7-Zip_0g3mn3jc90axa"
+        },
+        "applicationType": {
+            "value": "MsixApplication"
+        }
+    }
+}
