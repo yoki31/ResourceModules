@@ -20,6 +20,7 @@ This module deploys AVD Applications.
 | `name` | string | Required. The resource name |  |  |
 | `appDescription` | string | Optional. Description of Application |  |  |
 | `friendlyName` | string | Optional. Friendly name of Application |  |  |
+| `applicationType` | string | Mandatory. Resource Type of Application | | InBuilt, MsixApplication |
 | `filePath` | string | Optional. Specifies a path for the executable file for the application |  |  |
 | `commandLineSetting` | string | Required. Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all |  |  Allow, DoNotAllow, Require |
 | `commandLineArguments` | string | Optional. Command Line Arguments for Application |  |  |
