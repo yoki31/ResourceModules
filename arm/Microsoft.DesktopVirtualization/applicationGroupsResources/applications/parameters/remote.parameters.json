@@ -20,9 +20,6 @@
         "commandLineSetting": {
             "value": "DoNotAllow"
         },
-        "commandLineArguments": {
-            "value": ""
-        },
         "showInPortal": {
             "value": true
         },
