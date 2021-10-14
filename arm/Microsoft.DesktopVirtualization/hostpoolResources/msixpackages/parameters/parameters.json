@@ -30,10 +30,10 @@
             ]
         },
         "location": {
-            "value": "northeurope"
+            "value": "eastus"
         },
         "hostPoolName": {
-            "value": "wvd-to-hp-adds"
+            "value": "sxx-az-avdhp-weu-x-001"
         }
     }
 }
