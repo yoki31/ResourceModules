@@ -73,7 +73,7 @@ This module deploys AVD MSIX Packages.
 | :-- | :-- | :-- |
 | `hostPoolName` | string | The Name of the Host Pool to register the MSIX package(s) in. |
 | `hostPoolResourceGroup` | string | The name of the Resource Group the MSIX packages were created in. |
-| `msixpackageResourceIds` | array | The list of the deployed MSIX package resourceIds. |
+| `msixpackageResourceId` | string | The deployed MSIX package resourceId. |
 
 
 ## Considerations

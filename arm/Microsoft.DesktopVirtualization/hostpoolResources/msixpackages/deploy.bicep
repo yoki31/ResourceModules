@@ -60,6 +60,6 @@ resource msixpackage 'Microsoft.DesktopVirtualization/hostpools/msixpackages@202
   }
 }
 
-output msixpackageResourceIds string = resourceId('Microsoft.DesktopVirtualization/hostpools/msixpackages', hostPoolName, last(split(packageRelativePath, '\\')))
+output msixpackageResourceId string = resourceId('Microsoft.DesktopVirtualization/hostpools/msixpackages', hostPoolName, last(split(packageRelativePath, '\\')))
 output hostPoolResourceGroup string = resourceGroup().name
 output hostPoolName string = hostPoolName
