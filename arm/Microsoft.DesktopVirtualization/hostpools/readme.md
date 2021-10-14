@@ -8,10 +8,10 @@ This module deploys AVD Host Pools, with resource lock and diagnostics configura
 |Resource Type|ApiVersion|
 |:--|:--|
 |`Microsoft.DesktopVirtualization/hostpools`|2021-07-12|
-|`Microsoft.DesktopVirtualization/hostpools/providers/diagnosticsettings`|2017-05-01-preview|
-|`providers/locks`|2016-09-01|
+|`Microsoft.Insights/diagnosticsettings`|2017-05-01-preview|
+|`Microsoft.Authorization/locks`|2016-09-01|
 |`Microsoft.Resources/deployments`|2018-02-01|
-|`Microsoft.DesktopVirtualization/hostpools/providers/roleAssignments`|2018-09-01-preview|
+|`Microsoft.DesktopVirtualization/hostpools/providers/roleAssignments`|2020-04-01-preview|
 
 
 

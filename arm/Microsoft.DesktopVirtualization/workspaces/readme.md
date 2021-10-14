@@ -9,10 +9,10 @@ This module deploys AVD Workspaces, with resource lock and diagnostic configurat
 |Resource Type|ApiVersion|
 |:--|:--|
 |`Microsoft.DesktopVirtualization/workspaces`|2021-07-12|
-|`Microsoft.DesktopVirtualization/workspaces/providers/diagnosticsettings`|2017-05-01-preview|
+|`Microsoft.Insights/diagnosticsettings`|2017-05-01-preview|
 |`Microsoft.Resources/deployments`|2018-02-01|
-|`providers/locks`|2016-09-01|
-|`Microsoft.DesktopVirtualization/workspaces/providers/roleAssignments`|2018-09-01-preview|
+|`Microsoft.Authorization/locks`|2016-09-01|
+|`Microsoft.DesktopVirtualization/workspaces/providers/roleAssignments`|2020-04-01-preview|
 
 ## Parameters
 

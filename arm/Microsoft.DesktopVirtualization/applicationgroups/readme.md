@@ -8,8 +8,8 @@ This module deploys AVD Application Groups, with resource lock and diagnostics c
 |:--|:--|
 |`Microsoft.Resources/deployments`|2018-02-01|
 |`Microsoft.DesktopVirtualization/applicationgroups`|2021-07-12|
-|`providers/locks`|2016-09-01|
-|`Microsoft.DesktopVirtualization/applicationgroups/providers/diagnosticsettings`|2017-05-01-preview|
+|`Microsoft.Authorization/locks`|2016-09-01|
+|`Microsoft.Insights/diagnosticsettings`|2017-05-01-preview|
 |`Microsoft.DesktopVirtualization/applicationgroups/providers/roleAssignments`|2020-04-01-preview|
 
 ## Parameters
