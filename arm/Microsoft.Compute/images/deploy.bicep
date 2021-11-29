@@ -4,6 +4,9 @@ param imageName string
 @description('Optional. Location for all resources.')
 param location string = resourceGroup().location
 
+@description('Required. The Virtual Machine Resource ID.')
+param virtualMachineResourceId string
+
 @description('Required. The Virtual Hard Disk.')
 param osDiskBlobUri string
 
@@ -41,15 +44,18 @@ resource image 'Microsoft.Compute/images@2021-04-01' = {
   location: location
   tags: tags
   properties: {
-    storageProfile: {
-      osDisk: {
-        osType: osType
-        blobUri: osDiskBlobUri
-        caching: osDiskCaching
-        storageAccountType: osAccountType
-      }
-      dataDisks: []
-      zoneResilient: zoneResilient
+    // storageProfile: {
+    //   osDisk: {
+    //     osType: osType
+    //     blobUri: osDiskBlobUri
+    //     caching: osDiskCaching
+    //     storageAccountType: osAccountType
+    //   }
+    //   dataDisks: []
+    //   zoneResilient: zoneResilient
+    // }
+    sourceVirtualMachine: {
+      id: virtualMachineResourceId
     }
     hyperVGeneration: hyperVGeneration
   }
