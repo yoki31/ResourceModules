@@ -14,9 +14,9 @@ Will return either
 Mandatory. The path of the template file
 
 .EXAMPLE
-Get-ScopeOfTemplateFile -TemplateFilePath 'C:/deploy.json'
+Get-ScopeOfTemplateFile -TemplateFilePath 'C:/main.json'
 
-Get the scope of the given deploy.json template.
+Get the scope of the given main.json template.
 #>
 function Get-ScopeOfTemplateFile {
 
@@ -29,12 +29,12 @@ function Get-ScopeOfTemplateFile {
 
     if ((Split-Path $templateFilePath -Extension) -eq '.bicep') {
         # Bicep
-        $bicepContent = Get-Content $templateFilePath
-        $bicepScope = $bicepContent | Where-Object { $_ -like '*targetscope =*' }
-        if (-not $bicepScope) {
+        $bicepContent = Get-Content $templateFilePath -Raw
+        $bicepScopeMatch = [regex]::Match($bicepContent, '(?m)^\s*targetScope\s*=\s*''(\S+)''')
+        if (-not $bicepScopeMatch.Success) {
             $deploymentScope = 'resourcegroup'
         } else {
-            $deploymentScope = $bicepScope.ToLower().Split('=')[-1].Replace("'", '').Trim()
+            $deploymentScope = $bicepScopeMatch.Captures.Groups[1].Value
         }
     } else {
         # ARM
@@ -47,7 +47,7 @@ function Get-ScopeOfTemplateFile {
             Default { throw "[$armSchema] is a non-supported ARM template schema" }
         }
     }
-    Write-Verbose "Determined deployment scope [$deploymentScope]" -Verbose
+    Write-Verbose "Determined deployment scope [$deploymentScope]"
 
     return $deploymentScope
 }

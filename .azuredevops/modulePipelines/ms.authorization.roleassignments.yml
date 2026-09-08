@@ -1,22 +1,24 @@
 name: 'Authorization - RoleAssignments'
 
 parameters:
+  - name: staticValidation
+    displayName: Execute static validation
+    type: boolean
+    default: true
+  - name: deploymentValidation
+    displayName: Execute deployment validation
+    type: boolean
+    default: true
   - name: removeDeployment
     displayName: Remove deployed module
     type: boolean
     default: true
-  - name: versioningOption
-    displayName: The mode to handle the version increments [major|minor|patch]
-    type: string
-    default: patch
-    values:
-      - patch
-      - minor
-      - major
-  - name: customVersion
-    displayName: Custom version to apply. Used only if higher than latest
-    type: string
-    default: '0.0.1'
+  - name: prerelease
+    displayName: Publish prerelease module
+    type: boolean
+    default: false
+
+pr: none
 
 trigger:
   batch: true
@@ -26,40 +28,23 @@ trigger:
   paths:
     include:
       - '/.azuredevops/modulePipelines/ms.authorization.roleassignments.yml'
-      - '/.azuredevops/pipelineTemplates/module.*.yml'
-      - '/arm/Microsoft.Authorization/roleAssignments/*'
+      - '/.azuredevops/pipelineTemplates/*.yml'
+      - '/modules/authorization/role-assignment/*'
+      - '/utilities/pipelines/*'
     exclude:
+      - '/utilities/pipelines/deploymentRemoval/*'
       - '/**/*.md'
 
 variables:
-  - template: '/.azuredevops/pipelineVariables/global.variables.yml'
+  - template: '../../settings.yml'
   - group: 'PLATFORM_VARIABLES'
   - name: modulePath
-    value: '/arm/Microsoft.Authorization/roleAssignments'
+    value: '/modules/authorization/role-assignment'
 
 stages:
-  - stage: Validation
-    displayName: Pester tests
-    jobs:
-      - template: /.azuredevops/pipelineTemplates/module.jobs.validate.yml
-
-  - stage: Deployment
-    displayName: Deployment tests
-    jobs:
-      - template: /.azuredevops/pipelineTemplates/module.jobs.deploy.yml
-        parameters:
-          removeDeployment: '${{ parameters.removeDeployment }}'
-          deploymentBlocks:
-            - path: $(modulePath)/.parameters/min.parameters.json
-              templateFilePath: $(modulePath)/.bicep/nested_rbac_sub.bicep
-            - path: $(modulePath)/.parameters/parameters.json
-              templateFilePath: $(modulePath)/.bicep/nested_rbac_sub.bicep
-
-  - stage: Publishing
-    displayName: Publish module
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
-    jobs:
-      - template: /.azuredevops/pipelineTemplates/module.jobs.publish.yml
-        parameters:
-          versioningOption: '${{ parameters.versioningOption }}'
-          customVersion: '${{ parameters.customVersion }}'
+  - template: /.azuredevops/pipelineTemplates/stages.module.yml
+    parameters:
+      staticValidation: '${{ parameters.staticValidation }}'
+      deploymentValidation: '${{ parameters.deploymentValidation }}'
+      removeDeployment: '${{ parameters.removeDeployment }}'
+      prerelease: '${{ parameters.prerelease }}'
